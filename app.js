@@ -45,5 +45,10 @@ let minus = document.querySelector('#minus')
 let mul = document.querySelector('#mul')
 let div = document.querySelector('#div')
 let clear = document.querySelector('#clear')
-let displayValue;
+let displayValue = '0';
+
+num0.addEventListener('click', () => {
+    display.textContent = '0';
+    displayValue += '0';
+})
 

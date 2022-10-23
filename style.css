@@ -1,4 +1,6 @@
 body {
+    display: flex;
+    justify-content: center;
     background-color: black;
     color: white;
 }
@@ -6,10 +8,11 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 3vh;
     margin-top: 30vh;
-    border: 1px solid red;
+    width: 20vw;
 }
 
 .display {
@@ -17,8 +20,11 @@ body {
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    background-color: grey;
-    width: 20vw;
+    background-color: white;
+    color: black;
+    font-size: 40px;
+    border-radius: 15px;
+    width: 15vw;
     height: 8vh;
 }
 
