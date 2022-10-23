@@ -17,22 +17,21 @@ function divide(a, b) {
 function operate(operator, a, b) {
     aNum = parseInt(a);
     bNum = parseInt(b);
-    console.log(typeof(a));
+    console.log(operator, aNum, bNum);
     if (operator == '+') {
-        console.log(add(aNum, bNum));
+        display.textContent = add(aNum, bNum);
     }
     else if (operator == '-') {
-        subtract(aNum, bNum);
+        display.textContent = subtract(aNum, bNum);
     }
     else if (operator == '*') {
-        multiply(a, b);
+        display.textContent = multiply(aNum, bNum);
     }
     else if (operator == '/') {
-        divide(a, b);
+        display.textContent = divide(aNum, bNum);
     }
-    else {
-        console.log('error in operate if');
-    }
+    result = display.textContent;
+    console.log(result);
 }
 
 let display = document.querySelector('.display');
@@ -40,10 +39,12 @@ let clear = document.querySelector('#clear')
 let equals = document.querySelector('#equals')
 let numberButtons = document.querySelectorAll('.number');
 let operationButtons = document.querySelectorAll('.operator');
+
 let currentValue = 0;
 let currentOperator;
 let a;
 let b;
+let result;
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -54,10 +55,17 @@ numberButtons.forEach(button => {
 
 operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
-        currentOperator = operator.innerText; // variable for operate function
-        display.textContent = ''; // clear screen
-        a = currentValue;
-        currentValue = 0; // reset current Value
+        if (result !== undefined) {
+            a = result;
+            display.textContent = '';
+            currentValue = 0;
+        }
+        else {
+            currentOperator = operator.innerText; // variable for operate function
+            display.textContent = ''; // clear screen
+            a = currentValue;
+            currentValue = 0; // reset current Value
+        }
     })
 })
 
