@@ -17,6 +17,7 @@ function divide(a, b) {
 function operate(operator, a, b) {
     aNum = parseInt(a);
     bNum = parseInt(b);
+    console.log(operator, a, b);
     if (operator == '+') {
         display.textContent = add(aNum, bNum);
     }
@@ -71,6 +72,7 @@ operationButtons.forEach(operator => {
 equals.addEventListener('click', () => {
     b = currentValue;
     operate(currentOperator, a, b);
+    currentOperator = null;
 });
 
 clear.addEventListener('click', () => {
