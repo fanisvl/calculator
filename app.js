@@ -17,7 +17,6 @@ function divide(a, b) {
 function operate(operator, a, b) {
     aNum = parseInt(a);
     bNum = parseInt(b);
-    console.log(operator, aNum, bNum);
     if (operator == '+') {
         display.textContent = add(aNum, bNum);
     }
@@ -31,7 +30,6 @@ function operate(operator, a, b) {
         display.textContent = divide(aNum, bNum);
     }
     result = display.textContent;
-    console.log(result);
 }
 
 let display = document.querySelector('.display');
@@ -56,8 +54,9 @@ numberButtons.forEach(button => {
 operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
         if (result !== undefined) {
-            a = result;
+            currentOperator = operator.innerText;
             display.textContent = '';
+            a = result;
             currentValue = 0;
         }
         else {
