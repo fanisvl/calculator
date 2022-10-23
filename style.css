@@ -17,23 +17,21 @@ body {
 
 .display {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 1vh;
     background-color: white;
     color: black;
-    font-size: 40px;
+    padding: 10px;
+    font-size: 30px;
     border-radius: 15px;
-    width: 15vw;
-    height: 8vh;
+    height: 25px;
+    min-width: 300px;
 }
 
 .numpad {
     display: grid;
-    margin-top: 5vh;
-    grid-row-gap: 15px;
-    grid-column-gap: 20px;
-    grid-template-columns: repeat(4, 2vw);
+    margin-top: 3vh;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 button {
