@@ -53,17 +53,17 @@ numberButtons.forEach(button => {
 
 operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
-        if (result !== undefined) {
+        if (result !== undefined) { // this insures that it's the first calculation
             currentOperator = operator.innerText;
             display.textContent = '';
             a = result;
             currentValue = 0;
         }
         else {
-            currentOperator = operator.innerText; // variable for operate function
-            display.textContent = ''; // clear screen
+            currentOperator = operator.innerText;
+            display.textContent = '';
             a = currentValue;
-            currentValue = 0; // reset current Value
+            currentValue = 0;
         }
     })
 })
