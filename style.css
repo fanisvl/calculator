@@ -1,7 +1,6 @@
 body {
     background-color: black;
     color: white;
-    box-sizing: border-box;
 }
 
 .container {
@@ -19,15 +18,16 @@ body {
     align-items: center;
     margin: 1vh;
     background-color: grey;
-    width: 15vw;
-    height: 5vh;
+    width: 20vw;
+    height: 8vh;
 }
 
 .numpad {
     display: grid;
-    grid-template-columns: repeat(4, 2vw);
+    margin-top: 5vh;
     grid-row-gap: 15px;
-    grid-column-gap: 15px;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(4, 2vw);
 }
 
 button {
