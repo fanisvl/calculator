@@ -73,7 +73,13 @@ equals.addEventListener('click', () => {
     operate(currentOperator, a, b);
 });
 
-
+clear.addEventListener('click', () => {
+    display.textContent = '';
+    a = 0;
+    b = 0;
+    currentValue = 0;
+    result = undefined;
+})
 
 
 
