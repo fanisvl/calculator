@@ -15,40 +15,58 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
+    aNum = parseInt(a);
+    bNum = parseInt(b);
+    console.log(typeof(a));
     if (operator == '+') {
-        return add(a, b);
+        console.log(add(aNum, bNum));
     }
     else if (operator == '-') {
-        return subtract(a, b);
+        subtract(aNum, bNum);
     }
     else if (operator == '*') {
-        return multiply(a, b);
+        multiply(a, b);
     }
     else if (operator == '/') {
-        return divide(a, b);
+        divide(a, b);
+    }
+    else {
+        console.log('error in operate if');
     }
 }
 
 let display = document.querySelector('.display');
-let num0 = document.querySelector('#zero')
-let num1 = document.querySelector('#one')
-let num2 = document.querySelector('#two')
-let num3 = document.querySelector('#three')
-let num4 = document.querySelector('#four')
-let num5 = document.querySelector('#five')
-let num6 = document.querySelector('#six')
-let num7 = document.querySelector('#seven')
-let num8 = document.querySelector('#eight')
-let num9 = document.querySelector('#nine')
-let plus = document.querySelector('#plus')
-let minus = document.querySelector('#minus')
-let mul = document.querySelector('#mul')
-let div = document.querySelector('#div')
 let clear = document.querySelector('#clear')
-let displayValue = '0';
+let equals = document.querySelector('#equals')
+let numberButtons = document.querySelectorAll('.number');
+let operationButtons = document.querySelectorAll('.operator');
+let currentValue = 0;
+let currentOperator;
+let a;
+let b;
 
-num0.addEventListener('click', () => {
-    display.textContent = '0';
-    displayValue += '0';
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        display.textContent += button.innerText;
+        currentValue += button.innerText;
+    })
 })
+
+operationButtons.forEach(operator => {
+    operator.addEventListener('click', () => {
+        currentOperator = operator.innerText; // variable for operate function
+        display.textContent = ''; // clear screen
+        a = currentValue;
+        currentValue = 0; // reset current Value
+    })
+})
+
+equals.addEventListener('click', () => {
+    b = currentValue;
+    operate(currentOperator, a, b);
+});
+
+
+
+
 
