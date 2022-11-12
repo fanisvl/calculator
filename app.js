@@ -19,18 +19,18 @@ function operate(operator, a, b) {
     bNum = parseInt(b);
     console.log(operator, a, b);
     if (operator == '+') {
-        display.textContent = add(aNum, bNum);
+        result = add(aNum, bNum);
     }
     else if (operator == '-') {
-        display.textContent = subtract(aNum, bNum);
+        result = subtract(aNum, bNum);
     }
     else if (operator == '*') {
-        display.textContent = multiply(aNum, bNum);
+        result = multiply(aNum, bNum);
     }
     else if (operator == '/') {
-        display.textContent = divide(aNum, bNum);
+        result = divide(aNum, bNum);
     }
-    result = display.textContent;
+    display.textContent = result;
 }
 
 let display = document.querySelector('.display');
@@ -39,7 +39,7 @@ let equals = document.querySelector('#equals')
 let numberButtons = document.querySelectorAll('.number');
 let operationButtons = document.querySelectorAll('.operator');
 
-let currentValue = 0;
+let currentInput = 0;
 let currentOperator;
 let a;
 let b;
@@ -48,29 +48,26 @@ let result;
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         display.textContent += button.innerText;
-        currentValue += button.innerText;
+        currentInput += button.innerText;
     })
 })
 
 operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
-        if (result !== undefined) { // this insures that it's the first calculation
-            currentOperator = operator.innerText;
-            display.textContent = '';
+        currentOperator = operator.innerText;
+        display.textContent = '';
+        if (result !== undefined) { // this ensures that it's not the first calculation
             a = result;
-            currentValue = 0;
         }
-        else {
-            currentOperator = operator.innerText;
-            display.textContent = '';
-            a = currentValue;
-            currentValue = 0;
+        else {       
+            a = currentInput;
         }
+        currentInput = 0;
     })
 })
 
 equals.addEventListener('click', () => {
-    b = currentValue;
+    b = currentInput;
     operate(currentOperator, a, b);
     currentOperator = null;
 });
@@ -79,9 +76,6 @@ clear.addEventListener('click', () => {
     display.textContent = '';
     a = 0;
     b = 0;
-    currentValue = 0;
+    currentInput = 0;
     result = undefined;
 })
-
-
-
