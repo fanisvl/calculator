@@ -60,10 +60,10 @@ numberButtons.forEach(button => {
 operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
         if (firstCalculation == true) {
-            display.textContent = ''
             if (a == undefined) a = currentInput;
             currentInput = 0;
             currentOperator = operator.innerText;
+            display.textContent += ' ' + currentOperator + ' ';
             firstCalculation = false;
         }
         else {
@@ -71,6 +71,7 @@ operationButtons.forEach(operator => {
             a = operate(currentOperator, a, b)
             display.textContent = a;
             currentOperator = operator.innerText;
+            display.textContent += ' ' + currentOperator;
             clearPreviousResult = true;
         }
     })
