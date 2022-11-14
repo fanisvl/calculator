@@ -61,11 +61,9 @@ operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
         if (firstCalculation == true) {
             display.textContent = ''
-            a = currentInput;
+            if (a == undefined) a = currentInput;
             currentInput = 0;
             currentOperator = operator.innerText;
-            console.log(a);
-            console.log(currentOperator);
             firstCalculation = false;
         }
         else {
@@ -73,8 +71,6 @@ operationButtons.forEach(operator => {
             a = operate(currentOperator, a, b)
             display.textContent = a;
             currentOperator = operator.innerText;
-            console.log('a after is ' + a);
-            console.log('b is ' + b);
             clearPreviousResult = true;
         }
     })
@@ -84,9 +80,8 @@ equals.addEventListener('click', () => {
     b = currentInput;
     a = operate(currentOperator, a, b)
     display.textContent = a;
-    console.log('a after is ' + a);
-    console.log('b is ' + b);
     clearPreviousResult = true;
+    firstCalculation = true;
 });
 
 clear.addEventListener('click', () => {
