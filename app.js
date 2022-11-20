@@ -37,7 +37,6 @@ let clear = document.querySelector('#clear')
 let equals = document.querySelector('#equals')
 let numberButtons = document.querySelectorAll('.number');
 let operationButtons = document.querySelectorAll('.operator');
-
 let currentInput = 0;
 let currentOperator;
 let a;
@@ -60,7 +59,7 @@ numberButtons.forEach(button => {
 operationButtons.forEach(operator => {
     operator.addEventListener('click', () => {
         if (firstCalculation == true) {
-            if (a == undefined) a = currentInput;
+            if (a == undefined) a = currentInput; // ?
             currentInput = 0;
             currentOperator = operator.innerText;
             display.textContent += ' ' + currentOperator + ' ';
@@ -78,16 +77,19 @@ operationButtons.forEach(operator => {
 })
 
 equals.addEventListener('click', () => {
-    b = currentInput;
-    a = operate(currentOperator, a, b)
-    display.textContent = a;
-    clearPreviousResult = true;
-    firstCalculation = true;
+        b = currentInput;
+        a = operate(currentOperator, a, b)
+        display.textContent = a;
+        clearPreviousResult = true;
+        firstCalculation = true;
 });
 
 clear.addEventListener('click', () => {
-    display.textContent = '';
-    a = 0;
-    b = 0;
     currentInput = 0;
+    currentOperator = undefined;
+    a = undefined;
+    b = undefined;
+    firstCalculation = true;
+    clearPreviousResult = undefined;
+    display.textContent = '';
 })
