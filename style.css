@@ -1,8 +1,14 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
     color: white;
+    height: 100vh;
 }
 
 .container {
@@ -11,8 +17,10 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3vh;
-    margin-top: 30vh;
-    width: 15vw;
+    margin-top: 15vh;
+    height: 50vh;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 .display {
@@ -20,7 +28,7 @@ body {
     align-items: center;
     background-color: white;
     color: black;
-    padding: 10px;
+    padding: 1vh;
     font-size: 30px;
     border-radius: 15px;
     height: 25px;
@@ -30,7 +38,7 @@ body {
 .numpad {
     display: grid;
     margin-top: 3vh;
-    grid-gap: 20px;
+    grid-gap: 2vh;
     grid-template-columns: repeat(4, 1fr);
 }
 
@@ -44,4 +52,13 @@ button {
 
 button:hover {
     opacity: 75%;
+}
+
+.operator {
+        background-color: rgb(175, 230, 254);
+}
+
+#equals {
+    color: white;
+    background-color: rgb(27, 6, 129);
 }
