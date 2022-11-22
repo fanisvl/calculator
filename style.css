@@ -17,7 +17,7 @@ body {
     align-items: center;
     padding: 3vh;
     margin-top: 15vh;
-    height: 50vh;
+    height: 40vh;
     border: 1px solid white;
     border-radius: 15px;
 }
@@ -32,6 +32,7 @@ body {
     border-radius: 15px;
     height: 25px;
     min-width: 300px;
+    max-width: 300px;
 }
 
 .numpad {
@@ -39,6 +40,7 @@ body {
     margin-top: 3vh;
     grid-gap: 2vh;
     grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 50px;
 }
 
 button {

@@ -15,8 +15,8 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
-    aNum = parseInt(a);
-    bNum = parseInt(b);
+    aNum = Number(a);
+    bNum = Number(b);
     console.log('operate function:', operator, a, b);
     if (operator == '+') {
         return add(aNum, bNum);
@@ -28,7 +28,13 @@ function operate(operator, a, b) {
         return multiply(aNum, bNum);
     }
     else if (operator == '/') {
-        return divide(aNum, bNum);
+        if (bNum == 0) {
+            alert('wtf');
+            clearMemory();
+        }
+        else {
+            return divide(aNum, bNum);
+        }
     }
 }
 
@@ -85,6 +91,10 @@ equals.addEventListener('click', () => {
 });
 
 clear.addEventListener('click', () => {
+    clearMemory();
+})
+
+function clearMemory() {
     currentInput = 0;
     currentOperator = undefined;
     a = undefined;
@@ -92,4 +102,4 @@ clear.addEventListener('click', () => {
     firstCalculation = true;
     clearPreviousResult = undefined;
     display.textContent = '';
-})
+}
